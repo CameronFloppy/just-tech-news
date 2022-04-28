@@ -46,7 +46,7 @@ User.init(
     {
       // TABLE CONFIGURATION OPTIONS GO HERE (https://sequelize.org/v5/manual/models-definition.html#configuration))
       hooks: {
-        async beforeCreate(userData) {
+        async beforeCreate(newUserData) {
           newUserData.password = await bcrypt.hash(newUserData.password, 10)
           return newUserData
         },
